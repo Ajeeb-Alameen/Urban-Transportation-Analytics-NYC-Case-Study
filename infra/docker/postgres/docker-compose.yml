@@ -1,0 +1,40 @@
+services:
+  pgdatabase:
+    image: postgres:13
+    container_name: pgdatabase
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      
+    ports:
+      - "5432:5432"
+    volumes:
+      - $HOME/capstone/postgres/postgres-data:/var/lib/postgresql/data
+      - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U root"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: root@root.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+
+    volumes:
+      - $HOME/capstone/postgres/pgadmin-data:/var/lib/pgadmin
+    depends_on:
+      pgdatabase:
+        condition: service_healthy
+    restart: always
+
+
+networks:
+  default:
+    name: cp_shared_network
+    external: true

@@ -1,0 +1,11 @@
+dask[complete]
+geopandas
+fastparquet
+numpy
+scikit-learn
+sqlalchemy
+psycopg2-binary
+scikit-learn>=1.0
+scipy>=1.5
+joblib>=1.0
+

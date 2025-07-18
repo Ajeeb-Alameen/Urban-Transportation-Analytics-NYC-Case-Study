@@ -1,0 +1,54 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Airflow logs and settings
+airflow/logs/
+airflow/airflow.db
+airflow/unittests.cfg
+*.pid
+*.err
+
+# SQLite DB (if accidentally used)
+*.sqlite3
+
+# Environment files
+.env
+*.env
+
+# Python virtual environments
+venv/
+env/
+.venv/
+
+# Docker volumes
+docker/postgres/pgadmin-data/
+docker/postgres/db-data/
+docker/airflow/logs/
+docker/airflow/__pycache__/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# System files
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Pytest cache
+.pytest_cache/
+
+# Superset temp files (if applicable)
+superset_home/
+
+# Git
+.git/
+
